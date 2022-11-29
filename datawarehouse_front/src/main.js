@@ -3,13 +3,23 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import * as echarts from 'echarts';
 Vue.config.productionTip = false
+Vue.prototype.$echarts = echarts
 
+//设置端口
+Vue.prototype.$axios = axios
+axios.defaults.baseURL = 'http://localhost:8443/api'
+
+Vue.use(ElementUI);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
