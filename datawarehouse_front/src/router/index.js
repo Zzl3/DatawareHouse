@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/pages/HelloWorld'
-
+import Test from '@/pages/Test'
 import Actor from '@/pages/Actor'
 import ActorandDirector from '@/pages/ActorandDirector'
 import Compose from '@/pages/Compose'
@@ -14,7 +14,17 @@ import Compare from '@/pages/Compare'
 Vue.use(Router)
 
 export default new Router({
-  routes: [{
+  routes: [
+    {
+      path: '/',
+      redirect: '/Actor'
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test
+    },
+    {
     path: '/',
     name: 'HelloWorld',
     component: HelloWorld,
