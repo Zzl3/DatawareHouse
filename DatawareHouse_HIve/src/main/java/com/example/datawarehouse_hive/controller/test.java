@@ -16,9 +16,10 @@ public class test {
     private JdbcTemplate jdbcTemplate;
 
     @RequestMapping("/test")
-    public void test() {
+    public List<Map<String, Object>> test() {
         String sql = "show tables";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
+        return list;
     }
 }

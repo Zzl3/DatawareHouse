@@ -3,7 +3,7 @@ hive:
   driver-class-name: org.apache.hive.jdbc.HiveDriver
   type: com.alibaba.druid.pool.DruidDataSource
   user: root
-  #password: 123
+  password: 123
   initialSize: 1
   minIdle: 3
   maxActive: 20
