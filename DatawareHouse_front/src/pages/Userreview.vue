@@ -23,7 +23,8 @@
             </el-switch
           ></el-row>
           <br />
-          <el-button type="info" @click="search">开始搜索</el-button>
+          <el-button type="info" @click="search1">正面评价</el-button>
+          <el-button type="info" @click="search2">评分筛选</el-button>
           <p>共计{{ count }}条查询结果</p>
         </el-card>
       </el-col>
@@ -31,9 +32,7 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_id" label="电影id"> </el-table-column>
         <el-table-column prop="film_name" label="电影名称"> </el-table-column>
-        <el-table-column prop="type" label="电影类型"> </el-table-column>
       </el-table>
     </el-row>
   </div>
@@ -52,9 +51,32 @@ export default {
   },
   created() {},
   methods: {
-    search() {
+    search1() {
       console.log(this.ifactive);
       console.log(this.radio);
+      if (this.ifactive == true) {
+        this.$axios.post("/SearchByActive").then((res) => {
+        for (let item of res.data) {
+          vm.tableData.push(item);
+        }
+      });
+      }
+    },
+    search2() {
+      console.log(this.ifactive);
+      console.log(this.radio);
+      this.$axios({
+        url: "/SearchByScore",
+        method: "post",
+        data: vm.radio,
+        headers: {
+          "Content-Type": "text/plain",
+        },
+      }).then((res) => {
+        for (let item of res.data.result) {
+          vm.tableData.push(item);
+        }
+      });
     },
   },
 };

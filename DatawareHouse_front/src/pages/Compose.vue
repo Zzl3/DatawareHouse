@@ -63,9 +63,14 @@
             <br />
             <el-row :gutter="5">
               <el-col :span="24" :xs="24">
-                <el-row> 选择要查询的日期范围： </el-row>
+                <el-row> 选择要查询的年份： </el-row>
                 <br />
-                <div class="block">
+                <el-input
+                  placeholder="请输入导演名字"
+                  prefix-icon="el-icon-search"
+                  v-model="year"
+                ></el-input>
+                <!-- <div class="block">
                   <el-date-picker
                     v-model="duringtime"
                     type="datetimerange"
@@ -76,7 +81,7 @@
                     align="right"
                   >
                   </el-date-picker>
-                </div>
+                </div> -->
                 <br />
                 <el-button type="info" @click="search">开始搜索</el-button>
                 <p>共计{{ count }}条查询结果</p>
@@ -89,9 +94,11 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_id" label="电影id"> </el-table-column>
-        <el-table-column prop="film_name" label="电影名称"> </el-table-column>
-        <el-table-column prop="type" label="电影类型"> </el-table-column>
+        <el-table-column prop="film_time_new.film_name" label="电影名称">
+        </el-table-column>
+        <el-table-column prop="film_time_new.year" label="电影日期"> </el-table-column>
+        <el-table-column prop="film_time_new.director" label="电影导演">
+        </el-table-column>
       </el-table>
     </el-row>
   </div>
@@ -191,6 +198,7 @@ export default {
           label: "运动电影",
         },
       ],
+      year: "",
       moviename: "",
       movietype: "",
       actor: "",
@@ -212,6 +220,32 @@ export default {
       console.log(this.duringtime);
       console.log(this.radio);
       console.log(this.ifactive);
+      let vm = this;
+      vm.tableData = undefined;
+      vm.tableData = new Array(); //先清空再进行筛选
+      if (year != "" && director != "") {
+        this.$axios
+          .post("/SearchByTD", {
+            year: vm.year,
+            director: vm.director,
+          })
+          .then((res) => {
+            for (let item of res.data) {
+              vm.tableData.push(item);
+            }
+          });
+      } else if (year != "" && type != "") {
+        this.$axios
+          .post("/SearchByTT", {
+            year: vm.year,
+            type: vm.movietype,
+          })
+          .then((res) => {
+            for (let item of res.data) {
+              vm.tableData.push(item);
+            }
+          });
+      }
     },
   },
 };

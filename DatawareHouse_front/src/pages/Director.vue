@@ -22,9 +22,10 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_id" label="电影id"> </el-table-column>
-        <el-table-column prop="film_name" label="电影名称"> </el-table-column>
-        <el-table-column prop="type" label="电影类型"> </el-table-column>
+        <el-table-column prop="film_time_new.film_name" label="电影名称">
+        </el-table-column>
+        <el-table-column prop="film_time_new.director" label="电影导演">
+        </el-table-column>
       </el-table>
     </el-row>
   </div>
@@ -43,6 +44,18 @@ export default {
   methods: {
     search() {
       console.log(this.director);
+      this.$axios({
+        url: "/SearchByDirector",
+        method: "post",
+        data: vm.director,
+        headers: {
+          "Content-Type": "text/plain",
+        },
+      }).then((res) => {
+        for (let item of res.data.result) {
+          vm.tableData.push(item);
+        }
+      });
     },
   },
 };
