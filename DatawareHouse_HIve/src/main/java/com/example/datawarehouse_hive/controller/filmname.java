@@ -18,7 +18,7 @@ public class filmname {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/SearchByFilmName")
+    @RequestMapping("/api/SearchByFilmName")
     public Result SearchByFilmName(@RequestBody String filmname) {
         System.out.println(filmname);//0-6代表星期日到星期六
         String sql = "select * from film_vision_new where film_name=\""+filmname+"\"";

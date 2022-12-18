@@ -20,7 +20,7 @@ public class nine {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/SearchByTD")
+    @RequestMapping("/api/SearchByTD")
     public Result SearchByTD(@RequestBody YearDirector yearDirector) {
         System.out.println(yearDirector);//0-6代表星期日到星期六
         String sql = "select * from film_time_director where film_year="+yearDirector.getYear() +" and director=\""+yearDirector.getDirector()+"\"";
@@ -30,7 +30,7 @@ public class nine {
         return  ResultFactory.buildSuccessResult(list);
     }
 
-    @RequestMapping("/SearchByTT")
+    @RequestMapping("/api/SearchByTT")
     public Result SearchByTD(@RequestBody YearType yearType) {
         System.out.println(yearType);//0-6代表星期日到星期六
         String sql = "select * from film_time_type where film_year="+yearType.getYear() +" and type=\""+yearType.getType()+"\"";

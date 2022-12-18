@@ -27,7 +27,7 @@ public class seven {
         return  ResultFactory.buildSuccessResult(list);
     }
 
-    @RequestMapping("/SearchByActive")
+    @RequestMapping("/api/SearchByActive")
     public Result SearchByActive() {
         String sql = "select distinct film_name from film_review_new where is_active=1";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
