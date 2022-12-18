@@ -5,6 +5,7 @@ import com.example.datawarehouse_hive.result.ResultFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ public class four_star {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
+    @CrossOrigin
     @RequestMapping("/api/SearchByMainStar")
     public Result SearchByMainStar(@RequestBody String starMain) {
         System.out.println(starMain);//0-6代表星期日到星期六
@@ -27,6 +29,7 @@ public class four_star {
         return  ResultFactory.buildSuccessResult(list);
     }
 
+    @CrossOrigin
     @RequestMapping("/api/SearchByStar")
     public Result SearchByStar(@RequestBody String star) {
         System.out.println(star);//0-6代表星期日到星期六

@@ -70,7 +70,7 @@
       <el-table :data="tableData" stripe style="width: 100%">
         <el-table-column prop="film_time_new.film_name" label="电影名称">
         </el-table-column>
-        <el-table-column prop="film_time_new.film_name" label="年份"> </el-table-column>
+        <el-table-column prop="film_year" label="年份"> </el-table-column>
         <el-table-column prop="film_time_new.film_month" label="月份"> </el-table-column>
         <el-table-column prop="film_time_new.film_day" label="日份"> </el-table-column>
         <el-table-column prop="film_time_new.film_week" label="星期"> </el-table-column>
@@ -156,8 +156,8 @@ export default {
       let vm = this;
       vm.tableData = undefined;
       vm.tableData = new Array(); //先清空再进行筛选
-      if (year != "") {
-        if (month != "") {
+      if (this.year != "") {
+        if (this.month != "") {
           this.$axios
             .post("/SearchByYearMonth", {
               year: vm.year,
@@ -178,6 +178,7 @@ export default {
             },
           }).then((res) => {
             for (let item of res.data.result) {
+              console.log(item)
               vm.tableData.push(item);
             }
           });

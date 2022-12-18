@@ -5,6 +5,7 @@ import com.example.datawarehouse_hive.result.ResultFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ public class eight {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
+    @CrossOrigin
     @RequestMapping("/api/SearchAAByType")
     public Result SearchAAByType(@RequestBody String type) {
         String sql1 = "select film_name from film_review_type where type=\""+type+"\""+" order by amount desc limit 1";
