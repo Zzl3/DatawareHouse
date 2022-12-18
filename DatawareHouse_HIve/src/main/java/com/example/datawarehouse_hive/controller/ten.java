@@ -23,7 +23,7 @@ public class ten {
     @RequestMapping("/api/SearchFilmByName")
     public Result SearchFilmByName(@RequestBody String filmname) {
         System.out.println(filmname);//
-        String sql = "select * from film_id where film_name like \'%"+filmname+"%\';";
+        String sql = "select * from film_id where film_name like '%"+filmname+"%'";
         System.out.println(sql);
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
@@ -34,7 +34,7 @@ public class ten {
     @RequestMapping("/api/SearchWebByname")
     public Result SearchWebByname(@RequestBody String filmname) {
         System.out.println(filmname);//
-        String sql = "select * from film_id where film_name=\""+filmname+"\";";
+        String sql = "select * from film_id where film_name=\""+filmname+"\"";
         System.out.println(sql);
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
