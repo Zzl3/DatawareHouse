@@ -168,18 +168,20 @@ export default {
                 vm.tableData.push(item);
               }
             });
-        }else{        this.$axios({
-          url: "/SearchByYear",
-          method: "post",
-          data: vm.year,
-          headers: {
-            "Content-Type": "text/plain",
-          },
-        }).then((res) => {
-          for (let item of res.data.result) {
-            vm.tableData.push(item);
-          }
-        });}
+        } else {
+          this.$axios({
+            url: "/SearchByYear",
+            method: "post",
+            data: vm.year,
+            headers: {
+              "Content-Type": "text/plain",
+            },
+          }).then((res) => {
+            for (let item of res.data.result) {
+              vm.tableData.push(item);
+            }
+          });
+        }
       } else if (week != "") {
         this.$axios({
           url: "/SearchByWeek",
