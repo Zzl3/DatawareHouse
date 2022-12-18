@@ -148,7 +148,7 @@ export default {
             emphasis: {
               focus: "series",
             },
-            data: [320, 332, 301, 334, 390,123,345,453],
+            data: [63, 60, 32, 34, 30,31,78,32],
           },
           {
             name: "neo4j",
@@ -157,7 +157,7 @@ export default {
             emphasis: {
               focus: "series",
             },
-            data: [220, 182, 191, 234, 290, 390,123,345,453],
+            data: [220, 182, 191, 234, 290, 390,123,345],
           },
           {
             name: "hive",
@@ -166,7 +166,7 @@ export default {
             emphasis: {
               focus: "series",
             },
-            data: [150, 232, 201, 154, 190, 390,123,345,453],
+            data: [160, 164, 167, 154, 190, 390,380,345,183],
           },
 
         ],
