@@ -24,7 +24,7 @@ public class four_star {
         String sql = "select * from film_starMain_new where starMain=\""+starMain+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return  ResultFactory.buildSuccessResult(list.size());
+        return  ResultFactory.buildSuccessResult(list);
     }
 
     @RequestMapping("/SearchByStar")
@@ -33,6 +33,6 @@ public class four_star {
         String sql = "select * from film_star_new where star=\""+star+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return  ResultFactory.buildSuccessResult(list.size());
+        return  ResultFactory.buildSuccessResult(list);
     }
 }

@@ -28,7 +28,7 @@ public class time {
         String sql = "select * from film_time_new where film_year=" + year;
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return ResultFactory.buildSuccessResult(list.size());
+        return ResultFactory.buildSuccessResult(list);
     }
 
     @RequestMapping("/SearchByYearMonth")
@@ -37,7 +37,7 @@ public class time {
         String sql = "select * from film_time_new where film_month="+yearMonth.getMonth()+" and film_year="+yearMonth.getYear();
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return ResultFactory.buildSuccessResult(list.size());
+        return ResultFactory.buildSuccessResult(list);
     }
     @RequestMapping("/SearchByYearSeason")
     public Result SearchByYearSeason(@RequestBody YearSeason yearSeason) {
@@ -56,7 +56,7 @@ public class time {
         }
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return ResultFactory.buildSuccessResult(list.size());
+        return ResultFactory.buildSuccessResult(list);
     }
     @RequestMapping("/SearchByWeek")
     public Result SearchByWeek(@RequestBody String week) {
@@ -64,6 +64,6 @@ public class time {
         String sql = "select * from film_time_new where film_week="+week;
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return  ResultFactory.buildSuccessResult(list.size());
+        return  ResultFactory.buildSuccessResult(list);
     }
 }
