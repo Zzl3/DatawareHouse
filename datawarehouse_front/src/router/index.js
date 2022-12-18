@@ -12,6 +12,7 @@ import Time from '@/pages/Time'
 import Userreview from '@/pages/Userreview'
 import Compare from '@/pages/Compare'
 import Popular from '@/pages/Popular'
+import Source from '@/pages/Source'
 Vue.use(Router)
 
 export default new Router({
@@ -96,6 +97,13 @@ export default new Router({
           component: Popular,
           meta: {
             name: '欢迎度查询'
+          }
+        },
+        {
+          path: "/Source",
+          component: Source,
+          meta: {
+            name: '溯源查询'
           }
         },
       ],

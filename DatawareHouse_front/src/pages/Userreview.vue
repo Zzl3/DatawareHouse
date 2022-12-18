@@ -42,7 +42,7 @@
 export default {
   data() {
     return {
-      colors: ['#99A9BF', '#F7BA2A', '#FF9900'] ,
+      colors: ["#99A9BF", "#F7BA2A", "#FF9900"],
       ifactive: false, //如果是false就是消极评价，true就是积极评价
       radio: null, //评分
       count: 0,
@@ -59,11 +59,13 @@ export default {
       vm.tableData = new Array(); //先清空再进行筛选
       if (this.ifactive == true) {
         this.$axios.post("/SearchByActive").then((res) => {
-        for (let item of res.data.result) {
-          vm.tableData.push(item);
-        }
-      });
+          for (let item of res.data.result) {
+            vm.count = vm.count + 1;
+            vm.tableData.push(item);
+          }
+        });
       }
+      vm.count = 0;
     },
     search2() {
       console.log(this.ifactive);
@@ -80,9 +82,11 @@ export default {
         },
       }).then((res) => {
         for (let item of res.data.result) {
+          vm.count = vm.count + 1;
           vm.tableData.push(item);
         }
       });
+      vm.count = 0;
     },
   },
 };

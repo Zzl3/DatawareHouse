@@ -32,6 +32,7 @@
             <el-menu-item index="/Userreview">按用户评价查询</el-menu-item>
             <el-menu-item index="/ActorandDirector">按演员和导演关系查询</el-menu-item>
             <el-menu-item index="/Popular">按类型欢迎度查询</el-menu-item>
+            <el-menu-item index="/Source">溯源查询</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="/Compose">
