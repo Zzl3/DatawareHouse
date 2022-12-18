@@ -3,7 +3,7 @@
     <el-row :gutter="20">
       <el-col :span="12" :xs="24">
         <el-card>
-          <el-row> 选择要查询的日期： </el-row>
+          <el-row> 选择要查询的年份： </el-row>
           <br />
           <div class="block">
             <!-- <el-date-picker
@@ -19,6 +19,10 @@
               prefix-icon="el-icon-search"
               v-model="year"
             >
+            </el-input>
+            <el-input placeholder="输入星期" prefix-icon="el-icon-search" v-model="week">
+            </el-input>
+            <el-input placeholder="输入月份" prefix-icon="el-icon-search" v-model="month">
             </el-input>
           </div>
           <br />
@@ -138,6 +142,8 @@ export default {
       //   ],
       // },
       year: "", //这里是选择特定的日期
+      week: "",
+      month: "",
       section: "", //这是选择日期
       count: 0, //这是返回数据的条数
     };
@@ -150,18 +156,44 @@ export default {
       let vm = this;
       vm.tableData = undefined;
       vm.tableData = new Array(); //先清空再进行筛选
-      this.$axios({
-        url: "/SearchByYear",
-        method: "get",
-        data: vm.year,
-        headers: {
-          "Content-Type": "text/plain",
-        },
-      }).then((res) => {
-        for (let item of res.data.result) {
-          vm.tableData.push(item);
-        }
-      });
+      if (year != "") {
+        if (month != "") {
+          this.$axios
+            .post("/SearchByYearMonth", {
+              year: vm.year,
+              month: vm.month,
+            })
+            .then((res) => {
+              for (let item of res.data) {
+                vm.tableData.push(item);
+              }
+            });
+        }else{        this.$axios({
+          url: "/SearchByYear",
+          method: "post",
+          data: vm.year,
+          headers: {
+            "Content-Type": "text/plain",
+          },
+        }).then((res) => {
+          for (let item of res.data.result) {
+            vm.tableData.push(item);
+          }
+        });}
+      } else if (week != "") {
+        this.$axios({
+          url: "/SearchByWeek",
+          method: "post",
+          data: vm.week,
+          headers: {
+            "Content-Type": "text/plain",
+          },
+        }).then((res) => {
+          for (let item of res.data.result) {
+            vm.tableData.push(item);
+          }
+        });
+      }
     }, //点击按钮触发搜索方法
     search2() {
       console.log(this.year);
