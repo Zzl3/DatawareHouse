@@ -69,6 +69,7 @@
         <el-table-column prop="film_time_new.film_name" label="年份"> </el-table-column>
         <el-table-column prop="film_time_new.film_month" label="月份"> </el-table-column>
         <el-table-column prop="film_time_new.film_day" label="日份"> </el-table-column>
+        <el-table-column prop="film_time_new.film_week" label="星期"> </el-table-column>
       </el-table>
     </el-row>
   </div>
