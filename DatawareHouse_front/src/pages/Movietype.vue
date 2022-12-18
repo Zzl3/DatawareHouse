@@ -25,9 +25,9 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_time_new.film_name" label="电影名称">
+        <el-table-column prop="film_name" label="电影名称">
         </el-table-column>
-        <el-table-column prop="film_time_new.type" label="电影类型">
+        <el-table-column prop="type" label="电影类型">
         </el-table-column>
       </el-table>
     </el-row>
@@ -41,59 +41,59 @@ export default {
       method: "",
       options: [
         {
-          value: "action",
+          value: "Action",
           label: "动作电影",
         },
         {
-          value: "adventure",
+          value: "Adventure",
           label: "冒险电影",
         },
         {
-          value: "arthoust",
+          value: "Fantasy",
           label: "艺术电影",
         },
         {
-          value: "documentary",
+          value: "Documentaries",
           label: "纪实电影",
         },
         {
-          value: "horror",
+          value: "Horror",
           label: "恐怖电影",
         },
         {
-          value: "special interest",
-          label: "特殊爱好电影",
-        },
-        {
-          value: "suspense",
+          value: "Suspense",
           label: "悬疑电影",
         },
         {
-          value: "science fiction",
+          value: "Science Fiction",
           label: "科幻电影",
         },
         {
-          value: "animation",
+          value: "Anime",
           label: "动漫电影",
         },
         {
-          value: "kids",
+          value: "Kids",
           label: "儿童电影",
         },
         {
-          value: "comedy",
+          value: "Comedy",
           label: "喜剧电影",
         },
         {
-          value: "drama",
+          value: "Manga",
+          label: "奇幻电影",
+        },
+        {
+          value: "Drama",
           label: "戏剧电影",
         },
         {
-          value: "war",
+          value: "War",
           label: "战争电影",
         },
         {
-          value: "sports",
+          value: "Sports",
           label: "运动电影",
         },
       ],
@@ -106,6 +106,9 @@ export default {
   methods: {
     search() {
       console.log(this.value);
+      let vm = this;
+      vm.tableData = undefined;
+      vm.tableData = new Array(); //先清空再进行筛选
       this.$axios({
             url: "/SearchByType",
             method: "post",

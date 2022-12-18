@@ -34,11 +34,11 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="count_star_star.a1" label="人名1">
+        <el-table-column prop="a1" label="人名1">
         </el-table-column>
-        <el-table-column prop="count_star_star.a2" label="人名2">
+        <el-table-column prop="a2" label="人名2">
         </el-table-column>
-        <el-table-column prop="count_star_star.amount" label="合作次数">
+        <el-table-column prop="amount" label="合作次数">
         </el-table-column>
       </el-table>
     </el-row>
@@ -64,10 +64,11 @@ export default {
       //受欢迎程度大概按照之前的来
       console.log(this.man1);
       console.log(this.man2);
+      let vm = this;
       vm.tableData = undefined;
       vm.tableData = new Array(); //先清空再进行筛选
       this.$axios.post("/SearchByAA").then((res) => {
-        for (let item of res.data) {
+        for (let item of res.data.result) {
           vm.tableData.push(item);
         }
       });
@@ -79,26 +80,44 @@ export default {
       //受欢迎程度大概按照之前的来
       console.log(this.man1);
       console.log(this.man2);
+      let vm = this;
       vm.tableData = undefined;
       vm.tableData = new Array(); //先清空再进行筛选
       this.$axios.post("/SearchByDA").then((res) => {
-        for (let item of res.data) {
-          vm.tableData.push(item);
+        for (let item of res.data.result) {
+          let item2 = {
+            a1: "",
+            a2: "",
+            amount:""
+          };
+          item2.a1 = item.director
+          item2.a2 = item.star
+          item2.amount=item.amount
+          vm.tableData.push(item2);
         }
       });
     },
-    search1() {
+    search3() {
       //如果导演和演员都输入了，则返回联合查询
       //如果只输入导演，返回导演的全部电影和演员
       //如果只输入演员，返回导演的全部电影和导演
       //受欢迎程度大概按照之前的来
       console.log(this.man1);
       console.log(this.man2);
+      let vm = this;
       vm.tableData = undefined;
       vm.tableData = new Array(); //先清空再进行筛选
       this.$axios.post("/SearchByDD").then((res) => {
-        for (let item of res.data) {
-          vm.tableData.push(item);
+        for (let item of res.data.result) {
+          let item2 = {
+            a1: "",
+            a2: "",
+            amount:""
+          };
+          item2.a1 = item.d1
+          item2.a2 = item.d2
+          item2.amount=item.amount
+          vm.tableData.push(item2);
         }
       });
     },

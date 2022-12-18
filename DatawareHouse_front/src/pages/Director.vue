@@ -22,9 +22,9 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_time_new.film_name" label="电影名称">
+        <el-table-column prop="film_name" label="电影名称">
         </el-table-column>
-        <el-table-column prop="film_time_new.director" label="电影导演">
+        <el-table-column prop="director" label="电影导演">
         </el-table-column>
       </el-table>
     </el-row>
@@ -44,6 +44,9 @@ export default {
   methods: {
     search() {
       console.log(this.director);
+      let vm = this;
+      vm.tableData = undefined;
+      vm.tableData = new Array(); //先清空再进行筛选
       this.$axios({
         url: "/SearchByDirector",
         method: "post",

@@ -11,11 +11,11 @@ import Movietype from '@/pages/Movietype'
 import Time from '@/pages/Time'
 import Userreview from '@/pages/Userreview'
 import Compare from '@/pages/Compare'
+import Popular from '@/pages/Popular'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       redirect: '/Actor'
     },
@@ -25,73 +25,81 @@ export default new Router({
       component: Test
     },
     {
-    path: '/',
-    name: 'HelloWorld',
-    component: HelloWorld,
-    children: [{
-        path: '/Actor',
-        component: Actor,
-        meta: {
-          name: '演员查询'
-        }
-      },
-      {
-        path: '/ActorandDirector',
-        component: ActorandDirector,
-        meta: {
-          name: '导演演员查询'
-        }
-      },
-      {
-        path: '/Compose',
-        component: Compose,
-        meta: {
-          name: '组合查询'
-        }
-      },
-      {
-        path: '/Director',
-        component: Director,
-        meta: {
-          name: '电影导演查询'
-        }
-      },
-      {
-        path: '/Moviename',
-        component: Moviename,
-        meta: {
-          name: '电影名称查询'
-        }
-      },
-      {
-        path: '/Time',
-        component: Time,
-        meta: {
-          name: '时间查询'
-        }
-      },
-      {
-        path: '/Movietype',
-        component: Movietype,
-        meta: {
-          name: '电影类型查询'
-        }
-      },
-      {
-        path: '/Userreview',
-        component: Userreview,
-        meta: {
-          name: '用户评论查询'
-        }
-      },
-      {
-        path: "/Compare",
-        component: Compare,
-        meta: {
-          name: "不同存储模型查询效率比较"
-        }
-      },
-    ],
-    props: true
-  }]
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld,
+      children: [{
+          path: '/Actor',
+          component: Actor,
+          meta: {
+            name: '演员查询'
+          }
+        },
+        {
+          path: '/ActorandDirector',
+          component: ActorandDirector,
+          meta: {
+            name: '导演演员查询'
+          }
+        },
+        {
+          path: '/Compose',
+          component: Compose,
+          meta: {
+            name: '组合查询'
+          }
+        },
+        {
+          path: '/Director',
+          component: Director,
+          meta: {
+            name: '电影导演查询'
+          }
+        },
+        {
+          path: '/Moviename',
+          component: Moviename,
+          meta: {
+            name: '电影名称查询'
+          }
+        },
+        {
+          path: '/Time',
+          component: Time,
+          meta: {
+            name: '时间查询'
+          }
+        },
+        {
+          path: '/Movietype',
+          component: Movietype,
+          meta: {
+            name: '电影类型查询'
+          }
+        },
+        {
+          path: '/Userreview',
+          component: Userreview,
+          meta: {
+            name: '用户评论查询'
+          }
+        },
+        {
+          path: "/Compare",
+          component: Compare,
+          meta: {
+            name: "不同存储模型查询效率比较"
+          }
+        },
+        {
+          path: "/Popular",
+          component: Popular,
+          meta: {
+            name: '欢迎度查询'
+          }
+        },
+      ],
+      props: true
+    }
+  ]
 })

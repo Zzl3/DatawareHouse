@@ -54,9 +54,12 @@ export default {
     search1() {
       console.log(this.ifactive);
       console.log(this.radio);
+      let vm = this;
+      vm.tableData = undefined;
+      vm.tableData = new Array(); //先清空再进行筛选
       if (this.ifactive == true) {
         this.$axios.post("/SearchByActive").then((res) => {
-        for (let item of res.data) {
+        for (let item of res.data.result) {
           vm.tableData.push(item);
         }
       });
@@ -65,6 +68,9 @@ export default {
     search2() {
       console.log(this.ifactive);
       console.log(this.radio);
+      let vm = this;
+      vm.tableData = undefined;
+      vm.tableData = new Array(); //先清空再进行筛选
       this.$axios({
         url: "/SearchByScore",
         method: "post",

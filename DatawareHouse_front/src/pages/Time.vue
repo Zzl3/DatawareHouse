@@ -68,10 +68,11 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_time_new.film_name" label="年份"> </el-table-column>
-        <el-table-column prop="film_time_new.film_month" label="月份"> </el-table-column>
-        <el-table-column prop="film_time_new.film_day" label="日份"> </el-table-column>
-        <el-table-column prop="film_time_new.film_week" label="星期"> </el-table-column>
+        <el-table-column prop="film_name" label="电影名"> </el-table-column>
+        <el-table-column prop="film_year" label="年份"> </el-table-column>
+        <el-table-column prop="film_month" label="月份"> </el-table-column>
+        <el-table-column prop="film_day" label="日份"> </el-table-column>
+        <el-table-column prop="film_week" label="星期"> </el-table-column>
       </el-table>
     </el-row>
   </div>
@@ -181,7 +182,8 @@ export default {
             }
           });
         }
-      } else if (week != "") {
+        vm.year=""
+      } else if (vm.week != "") {
         this.$axios({
           url: "/SearchByWeek",
           method: "post",
@@ -210,10 +212,11 @@ export default {
           season: vm.section,
         })
         .then((res) => {
-          for (let item of res.data) {
+          for (let item of res.data.result) {
             vm.tableData.push(item);
           }
         });
+        vm.year=""
     }, //点击按钮触发搜索方法
   },
 };

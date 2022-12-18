@@ -63,10 +63,10 @@
             <br />
             <el-row :gutter="5">
               <el-col :span="24" :xs="24">
-                <el-row> 选择要查询的年份： </el-row>
+                <el-row> 输入要查询的年份： </el-row>
                 <br />
                 <el-input
-                  placeholder="请输入导演名字"
+                  placeholder="请输入年份"
                   prefix-icon="el-icon-search"
                   v-model="year"
                 ></el-input>
@@ -94,10 +94,12 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_time_new.film_name" label="电影名称">
+        <el-table-column prop="film_name" label="电影名称">
         </el-table-column>
-        <el-table-column prop="film_time_new.year" label="电影日期"> </el-table-column>
-        <el-table-column prop="film_time_new.director" label="电影导演">
+        <el-table-column prop="film_year" label="电影日期"> </el-table-column>
+        <el-table-column prop="director" label="电影导演">
+        </el-table-column>
+        <el-table-column prop="type" label="电影类型">
         </el-table-column>
       </el-table>
     </el-row>
@@ -217,31 +219,31 @@ export default {
       console.log(this.movietype);
       console.log(this.actor);
       console.log(this.director);
-      console.log(this.duringtime);
+      console.log(this.year);
       console.log(this.radio);
       console.log(this.ifactive);
       let vm = this;
       vm.tableData = undefined;
       vm.tableData = new Array(); //先清空再进行筛选
-      if (year != "" && director != "") {
+      if (vm.year != "" && vm.director != "") {
         this.$axios
           .post("/SearchByTD", {
             year: vm.year,
             director: vm.director,
           })
           .then((res) => {
-            for (let item of res.data) {
+            for (let item of res.data.result) {
               vm.tableData.push(item);
             }
           });
-      } else if (year != "" && type != "") {
+      } else if (vm.year != "" && vm.movietype != "") {
         this.$axios
           .post("/SearchByTT", {
             year: vm.year,
             type: vm.movietype,
           })
           .then((res) => {
-            for (let item of res.data) {
+            for (let item of res.data.result) {
               vm.tableData.push(item);
             }
           });

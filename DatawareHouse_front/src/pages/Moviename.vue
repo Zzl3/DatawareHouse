@@ -22,9 +22,9 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_time_new.film_name" label="电影名称">
+        <el-table-column prop="film_name" label="电影名称">
         </el-table-column>
-        <el-table-column prop="film_time_new.vision" label="电影版本"> </el-table-column>
+        <el-table-column prop="vision" label="电影版本"> </el-table-column>
       </el-table>
     </el-row>
   </div>
@@ -43,6 +43,9 @@ export default {
   methods: {
     search() {
       console.log(this.value);
+      let vm = this;
+      vm.tableData = undefined;
+      vm.tableData = new Array(); //先清空再进行筛选
       this.$axios({
         url: "/SearchByFilmName",
         method: "post",
