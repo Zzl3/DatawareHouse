@@ -20,9 +20,9 @@ public class seven {
     private JdbcTemplate jdbcTemplate;
 
     @CrossOrigin
-    @RequestMapping("/SearchByScore")
+    @RequestMapping("/api/SearchByScore")
     public Result SearchByScore(@RequestBody String  score) {
-        System.out.println(score);//0-6代表星期日到星期六
+        System.out.println(score);//
         String sql = "select distinct film_name from film_review_new where score >="+score;
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
