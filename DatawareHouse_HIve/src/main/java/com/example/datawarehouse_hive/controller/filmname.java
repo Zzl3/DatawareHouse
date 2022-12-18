@@ -5,6 +5,7 @@ import com.example.datawarehouse_hive.result.ResultFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ public class filmname {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
+    @CrossOrigin
     @RequestMapping("/api/SearchByFilmName")
     public Result SearchByFilmName(@RequestBody String filmname) {
         System.out.println(filmname);//0-6代表星期日到星期六

@@ -7,6 +7,7 @@ import com.example.datawarehouse_hive.result.ResultFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ public class nine {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
+    @CrossOrigin
     @RequestMapping("/api/SearchByTD")
     public Result SearchByTD(@RequestBody YearDirector yearDirector) {
         System.out.println(yearDirector);//0-6代表星期日到星期六
@@ -30,6 +32,7 @@ public class nine {
         return  ResultFactory.buildSuccessResult(list);
     }
 
+    @CrossOrigin
     @RequestMapping("/api/SearchByTT")
     public Result SearchByTD(@RequestBody YearType yearType) {
         System.out.println(yearType);//0-6代表星期日到星期六
