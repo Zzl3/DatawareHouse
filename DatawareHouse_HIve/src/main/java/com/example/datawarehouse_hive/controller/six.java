@@ -24,6 +24,6 @@ public class six {
         String sql = "select * from film_type_new where type=\""+type+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return  ResultFactory.buildSuccessResult(list.size());
+        return  ResultFactory.buildSuccessResult(list);
     }
 }

@@ -24,6 +24,6 @@ public class filmname {
         String sql = "select * from film_vision_new where film_name=\""+filmname+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return  ResultFactory.buildSuccessResult(list.size());
+        return  ResultFactory.buildSuccessResult(list);
     }
 }

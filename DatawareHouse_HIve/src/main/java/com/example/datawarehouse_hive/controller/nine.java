@@ -27,7 +27,7 @@ public class nine {
         System.out.println(sql);
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return  ResultFactory.buildSuccessResult(list.size());
+        return  ResultFactory.buildSuccessResult(list);
     }
 
     @RequestMapping("/SearchByTT")
@@ -36,7 +36,7 @@ public class nine {
         String sql = "select * from film_time_type where film_year="+yearType.getYear() +" and type=\""+yearType.getType()+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return  ResultFactory.buildSuccessResult(list.size());
+        return  ResultFactory.buildSuccessResult(list);
     }
 }
 

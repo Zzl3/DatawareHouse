@@ -24,6 +24,6 @@ public class director {
         String sql = "select * from film_director_new where director=\""+director+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
-        return  ResultFactory.buildSuccessResult(list.size());
+        return  ResultFactory.buildSuccessResult(list);
     }
 }
