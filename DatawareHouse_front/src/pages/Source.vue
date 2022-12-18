@@ -14,13 +14,13 @@
               </el-input>
             </el-row>
             <br />
-            <el-button type="info" @click="search1">查询电影版本</el-button>
+            <el-button type="info" @click="search1">查询电影系列</el-button>
             <el-button type="info" @click="search2">查询电影网页</el-button>
             <p>共计{{ count }}条查询结果</p>
           </el-card>
         </el-col>
       </el-row>
-  
+
       <el-row>
         <el-table :data="tableData" stripe style="width: 100%">
           <el-table-column prop="productid" label="产品id">
@@ -30,7 +30,7 @@
       </el-row>
     </div>
   </template>
-  
+
   <script>
   export default {
     data() {
@@ -85,7 +85,7 @@
     },
   };
   </script>
-  
+
   <style scoped>
   .stockcost_container {
     margin-top: 10px;
@@ -93,4 +93,3 @@
     margin-right: 10px;
   }
   </style>
-  
