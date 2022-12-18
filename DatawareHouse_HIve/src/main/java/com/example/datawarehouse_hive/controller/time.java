@@ -22,7 +22,7 @@ public class time {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
     //xxx年有多少电影
-    @RequestMapping("/SearchByYear")
+    @RequestMapping("/api/SearchByYear")
     public Result countByYear(@RequestBody String year) {
         System.out.println(year);
         String sql = "select * from film_time_new where film_year=" + year;
@@ -31,7 +31,7 @@ public class time {
         return ResultFactory.buildSuccessResult(list);
     }
 
-    @RequestMapping("/SearchByYearMonth")
+    @RequestMapping("/api/SearchByYearMonth")
     public Result countByYearMonth(@RequestBody YearMonth yearMonth) {
         System.out.println(yearMonth);
         String sql = "select * from film_time_new where film_month="+yearMonth.getMonth()+" and film_year="+yearMonth.getYear();
@@ -39,7 +39,7 @@ public class time {
         System.out.println(list);
         return ResultFactory.buildSuccessResult(list);
     }
-    @RequestMapping("/SearchByYearSeason")
+    @RequestMapping("/api/SearchByYearSeason")
     public Result SearchByYearSeason(@RequestBody YearSeason yearSeason) {
         System.out.println(yearSeason);
         String sql ="";
@@ -58,7 +58,7 @@ public class time {
         System.out.println(list);
         return ResultFactory.buildSuccessResult(list);
     }
-    @RequestMapping("/SearchByWeek")
+    @RequestMapping("/api/SearchByWeek")
     public Result SearchByWeek(@RequestBody String week) {
         System.out.println(week);//0-6代表星期日到星期六
         String sql = "select * from film_time_new where film_week="+week;

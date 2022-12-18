@@ -18,7 +18,7 @@ public class four_star {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/SearchByMainStar")
+    @RequestMapping("/api/SearchByMainStar")
     public Result SearchByMainStar(@RequestBody String starMain) {
         System.out.println(starMain);//0-6代表星期日到星期六
         String sql = "select * from film_starMain_new where starMain=\""+starMain+"\"";
@@ -27,7 +27,7 @@ public class four_star {
         return  ResultFactory.buildSuccessResult(list);
     }
 
-    @RequestMapping("/SearchByStar")
+    @RequestMapping("/api/SearchByStar")
     public Result SearchByStar(@RequestBody String star) {
         System.out.println(star);//0-6代表星期日到星期六
         String sql = "select * from film_star_new where star=\""+star+"\"";

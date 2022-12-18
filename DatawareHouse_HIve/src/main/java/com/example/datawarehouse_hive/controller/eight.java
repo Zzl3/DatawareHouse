@@ -18,7 +18,7 @@ public class eight {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/SearchAAByType")
+    @RequestMapping("/api/SearchAAByType")
     public Result SearchAAByType(@RequestBody String type) {
         String sql1 = "select film_name from film_review_type where type=\""+type+"\""+" order by amount desc limit 1";
         System.out.println(sql1);

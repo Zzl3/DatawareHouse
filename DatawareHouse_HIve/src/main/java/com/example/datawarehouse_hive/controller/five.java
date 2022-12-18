@@ -18,7 +18,7 @@ public class five {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/SearchByAA")
+    @RequestMapping("/api/SearchByAA")
     public Result SearchByAA() {
         String sql = "select * from count_star_star limit 1";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
@@ -26,14 +26,14 @@ public class five {
         return  ResultFactory.buildSuccessResult(list);
     }
 
-    @RequestMapping("/SearchByDA")
+    @RequestMapping("/api/SearchByDA")
     public Result SearchByDA() {
         String sql = "select * from count_director_star limit 1";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
         return  ResultFactory.buildSuccessResult(list);
     }
-    @RequestMapping("/SearchByDD")
+    @RequestMapping("/api/SearchByDD")
     public Result SearchByDD() {
         String sql = "select * from count_director_director limit 1";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);

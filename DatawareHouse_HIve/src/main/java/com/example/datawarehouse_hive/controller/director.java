@@ -18,7 +18,7 @@ public class director {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/SearchByDirector")
+    @RequestMapping("/api/SearchByDirector")
     public Result SearchByDirector(@RequestBody String director) {
         System.out.println(director);//0-6代表星期日到星期六
         String sql = "select * from film_director_new where director=\""+director+"\"";

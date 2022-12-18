@@ -18,7 +18,7 @@ public class six {
     @Qualifier("jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/SearchByType")
+    @RequestMapping("/api/SearchByType")
     public Result SearchByType(@RequestBody String type) {
         System.out.println(type);//0-6代表星期日到星期六
         String sql = "select * from film_type_new where type=\""+type+"\"";
