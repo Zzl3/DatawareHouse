@@ -55,9 +55,11 @@ export default {
         },
       }).then((res) => {
         for (let item of res.data.result) {
+          vm.count = vm.count + 1;
           vm.tableData.push(item);
         }
       });
+      vm.count = 0;
     },
     search2() {
       console.log(this.value);
@@ -73,6 +75,7 @@ export default {
         },
       }).then((res) => {
         for (let item of res.data.result) {
+          vm.count = vm.count + 1;
           let item2 = {
             star: "",
             film_name: "",
@@ -83,6 +86,7 @@ export default {
           vm.tableData.push(item2);
         }
       });
+      vm.count = 0;
     },
   },
 };

@@ -164,6 +164,8 @@ export default {
             })
             .then((res) => {
               for (let item of res.data.result) {
+                vm.count = vm.count + 1;
+                console.log(vm.count);
                 vm.tableData.push(item);
               }
             });
@@ -177,12 +179,12 @@ export default {
             },
           }).then((res) => {
             for (let item of res.data.result) {
-              console.log(item)
+              //console.log(item);
+              vm.count = vm.count + 1;
               vm.tableData.push(item);
             }
           });
         }
-        vm.year=""
       } else if (vm.week != "") {
         this.$axios({
           url: "/SearchByWeek",
@@ -193,10 +195,16 @@ export default {
           },
         }).then((res) => {
           for (let item of res.data.result) {
+            vm.count = vm.count + 1;
             vm.tableData.push(item);
           }
         });
       }
+      vm.year = "";
+      vm.week = "";
+      vm.month = "";
+      vm.section = "";
+      vm.count = 0;
     }, //点击按钮触发搜索方法
     search2() {
       console.log(this.year);
@@ -213,10 +221,15 @@ export default {
         })
         .then((res) => {
           for (let item of res.data.result) {
+            vm.count = vm.count + 1;
             vm.tableData.push(item);
           }
         });
-        vm.year=""
+      vm.year = "";
+      vm.week = "";
+      vm.month = "";
+      vm.section = "";
+      vm.count = 0;
     }, //点击按钮触发搜索方法
   },
 };

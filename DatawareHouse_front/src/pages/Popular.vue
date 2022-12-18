@@ -116,9 +116,11 @@
               },
             }).then((res) => {
               for (let item of res.data.result) {
+                vm.count = vm.count + 1;
                 vm.tableData.push(item);
               }
             });
+            vm.count = 0;
       },
     },
   };

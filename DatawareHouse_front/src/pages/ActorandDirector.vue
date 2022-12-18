@@ -4,7 +4,7 @@
       <el-col :span="24" :xs="24">
         <el-card>
           <br />
-          <el-row> 输入导演和演员名称： </el-row>
+          <!-- <el-row> 输入导演和演员名称： </el-row>
           <br />
           <el-row>
             <el-input
@@ -22,7 +22,7 @@
               v-model="man2"
             >
             </el-input>
-          </el-row>
+          </el-row> -->
           <br />
           <el-button type="info" @click="search1">演员-演员</el-button>
           <el-button type="info" @click="search2">演员-导演</el-button>
@@ -69,9 +69,11 @@ export default {
       vm.tableData = new Array(); //先清空再进行筛选
       this.$axios.post("/SearchByAA").then((res) => {
         for (let item of res.data.result) {
+          vm.count = vm.count + 1;
           vm.tableData.push(item);
         }
       });
+      vm.count = 0;
     },
     search2() {
       //如果导演和演员都输入了，则返回联合查询
@@ -85,6 +87,7 @@ export default {
       vm.tableData = new Array(); //先清空再进行筛选
       this.$axios.post("/SearchByDA").then((res) => {
         for (let item of res.data.result) {
+          vm.count = vm.count + 1;
           let item2 = {
             a1: "",
             a2: "",
@@ -96,6 +99,7 @@ export default {
           vm.tableData.push(item2);
         }
       });
+      vm.count = 0;
     },
     search3() {
       //如果导演和演员都输入了，则返回联合查询
@@ -120,6 +124,7 @@ export default {
           vm.tableData.push(item2);
         }
       });
+      vm.count = 0;
     },
   },
 };
