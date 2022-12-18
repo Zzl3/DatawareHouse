@@ -68,9 +68,7 @@
 
     <el-row>
       <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="film_time_new.film_name" label="电影名称">
-        </el-table-column>
-        <el-table-column prop="film_year" label="年份"> </el-table-column>
+        <el-table-column prop="film_time_new.film_name" label="年份"> </el-table-column>
         <el-table-column prop="film_time_new.film_month" label="月份"> </el-table-column>
         <el-table-column prop="film_time_new.film_day" label="日份"> </el-table-column>
         <el-table-column prop="film_time_new.film_week" label="星期"> </el-table-column>
@@ -164,7 +162,7 @@ export default {
               month: vm.month,
             })
             .then((res) => {
-              for (let item of res.data) {
+              for (let item of res.data.result) {
                 vm.tableData.push(item);
               }
             });

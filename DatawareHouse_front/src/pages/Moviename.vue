@@ -34,7 +34,7 @@
 export default {
   data() {
     return {
-      value: "", //查询饿电影名称
+      value: "", //查询电影名称
       count: 0,
       tableData: [],
     };
