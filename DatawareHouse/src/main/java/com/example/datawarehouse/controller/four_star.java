@@ -23,7 +23,7 @@ public class four_star {
     @RequestMapping("/api/SearchByMainStar")
     public Result SearchByMainStar(@RequestBody String starMain) {
         System.out.println(starMain);//0-6代表星期日到星期六
-        String sql = "select * from film_starMain where starMain=\""+starMain+"\"";
+        String sql = "select distinct * from film_starMain where starMain=\""+starMain+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
         return  ResultFactory.buildSuccessResult(list);
@@ -33,7 +33,7 @@ public class four_star {
     @RequestMapping("/api/SearchByStar")
     public Result SearchByStar(@RequestBody String star) {
         System.out.println(star);//0-6代表星期日到星期六
-        String sql = "select * from film_star where star=\""+star+"\"";
+        String sql = "select distinct * from film_star where star=\""+star+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
         return  ResultFactory.buildSuccessResult(list);

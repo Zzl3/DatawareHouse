@@ -23,7 +23,9 @@ public class ten {
     @RequestMapping("/api/SearchFilmByName")
     public Result SearchFilmByName(@RequestBody String filmname) {
         System.out.println(filmname);//
-        String sql = "select * from film_id where film_name like \'%"+filmname+"%\';";
+        //String sql = "select distinct(film_name), productid, release_time,type,director,star,vision,last_time from film_id where film_name like \'%"+filmname+"%\' and release_time!=\"\" and release_time!=null and type!=\"\" and type!=null and director!=\"\" and director!=null and vision!=\"\" and vision!=null;";
+        String sql = "select distinct(film_name), productid, release_time,type,director,star,vision,last_time from film_id where film_name like \'%"+filmname+"%\';";
+
         System.out.println(sql);
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
@@ -34,7 +36,7 @@ public class ten {
     @RequestMapping("/api/SearchWebByname")
     public Result SearchWebByname(@RequestBody String filmname) {
         System.out.println(filmname);//
-        String sql = "select * from film_id where film_name=\""+filmname+"\";";
+        String sql = "select distinct * from film_id where film_name=\""+filmname+"\";";
         System.out.println(sql);
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);

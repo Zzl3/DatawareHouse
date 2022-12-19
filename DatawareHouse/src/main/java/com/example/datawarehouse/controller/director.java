@@ -23,7 +23,7 @@ public class director {
     @RequestMapping("/api/SearchByDirector")
     public Result SearchByDirector(@RequestBody String director) {
         System.out.println(director);//0-6代表星期日到星期六
-        String sql = "select * from film_director where director=\""+director+"\"";
+        String sql = "select distinct * from film_director where director=\""+director+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
         return  ResultFactory.buildSuccessResult(list);

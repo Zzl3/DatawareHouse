@@ -23,7 +23,7 @@ public class six {
     @RequestMapping("/api/SearchByType")
     public Result SearchByType(@RequestBody String type) {
         System.out.println(type);//0-6代表星期日到星期六
-        String sql = "select * from film_type where type=\""+type+"\"";
+        String sql = "select distinct * from film_type where type=\""+type+"\"";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
         return  ResultFactory.buildSuccessResult(list);

@@ -25,7 +25,7 @@ public class time {
     @RequestMapping("/api/SearchByYear")
     public Result countByYear(@RequestBody String year) {
         System.out.println(year);
-        String sql = "select * from film_time where film_year=" + year;
+        String sql = "select distinct film_name,film_year,film_month,film_day,film_week from film_time where film_year=" + year;
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
         return ResultFactory.buildSuccessResult(list);
@@ -34,7 +34,7 @@ public class time {
     @RequestMapping("/api/SearchByYearMonth")
     public Result countByYearMonth(@RequestBody YearMonth yearMonth) {
         System.out.println(yearMonth);
-        String sql = "select * from film_time where film_month="+yearMonth.getMonth()+" and film_year="+yearMonth.getYear();
+        String sql = "select distinct film_name,film_year,film_month,film_day,film_week from film_time where film_month="+yearMonth.getMonth()+" and film_year="+yearMonth.getYear();
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         System.out.println(list);
         return ResultFactory.buildSuccessResult(list);
@@ -45,13 +45,13 @@ public class time {
         System.out.println(yearSeason);
         String sql ="";
         if(yearSeason.getSeason()==1){
-            sql = "select * from film_time where film_month>=1 and film_month<=3 and film_year="+yearSeason.getYear();
+            sql = "select distinct film_name,film_year,film_month,film_day,film_week from film_time where film_month>=1 and film_month<=3 and film_year="+yearSeason.getYear();
         }else if (yearSeason.getSeason()==2){
-            sql = "select * from film_time where film_month>=4 and film_month<=6 and film_year="+yearSeason.getYear();
+            sql = "select distinct film_name,film_year,film_month,film_day,film_week from film_time where film_month>=4 and film_month<=6 and film_year="+yearSeason.getYear();
         }else if (yearSeason.getSeason()==3){
-            sql = "select * from film_time where film_month>=7 and film_month<=9 and film_year="+yearSeason.getYear();
+            sql = "select distinct film_name,film_year,film_month,film_day,film_week from film_time where film_month>=7 and film_month<=9 and film_year="+yearSeason.getYear();
         }else if (yearSeason.getSeason()==4){
-            sql = "select * from film_time where film_month>=10 and film_month<=12 and film_year="+yearSeason.getYear();
+            sql = "select distinct film_name,film_year,film_month,film_day,film_week from film_time where film_month>=10 and film_month<=12 and film_year="+yearSeason.getYear();
         }else {
             return ResultFactory.buildFailResult("季度错误");
         }

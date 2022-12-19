@@ -28,7 +28,7 @@ public class eight {
         System.out.println(list);
         String film_name=(String) list.get(0).get("film_name");
         System.out.println("film_name:"+film_name);
-        String sql2="select star from film_star where film_name=\""+film_name+"\"";
+        String sql2="select distinct star from film_star where film_name=\""+film_name+"\"";
         List<Map<String, Object>> list1 = jdbcTemplate.queryForList(sql2);
         System.out.println(list1);
         return  ResultFactory.buildSuccessResult(list1);
