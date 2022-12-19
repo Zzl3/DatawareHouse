@@ -144,59 +144,68 @@ export default {
       },
       options: [
         {
-          value: "action",
+          value: "Genre for Featured Categories",
+          label: "其他电影",
+        },
+        {
+          value: "Action",
           label: "动作电影",
         },
         {
-          value: "adventure",
+          value: "Adventure",
           label: "冒险电影",
         },
         {
-          value: "arthoust",
+          value: "Art House & International",
           label: "艺术电影",
         },
         {
-          value: "documentary",
+          value: "Documentaries",
           label: "纪实电影",
         },
         {
-          value: "horror",
+          value: "Horror",
           label: "恐怖电影",
         },
         {
-          value: "special interest",
-          label: "特殊爱好电影",
-        },
-        {
-          value: "suspense",
+          value: "Suspense",
           label: "悬疑电影",
         },
         {
-          value: "science fiction",
-          label: "科幻电影",
-        },
-        {
-          value: "animation",
-          label: "动漫电影",
-        },
-        {
-          value: "kids",
+          value: "Kids",
           label: "儿童电影",
         },
         {
-          value: "comedy",
+          value: "Science Fiction & Fantasy",
+          label: "科幻电影",
+        },
+        {
+          value: "Anime",
+          label: "动漫电影",
+        },
+
+        {
+          value: "Comedy",
           label: "喜剧电影",
         },
         {
-          value: "drama",
+          value: "Studio Specials",
+          label: "奇幻电影",
+        },
+        {
+          value: "Musicals & Performing Arts",
+          label: "音乐电影",
+        },
+        {
+          value: "Drama",
           label: "戏剧电影",
         },
         {
-          value: "war",
-          label: "战争电影",
+          value: "Adventure",
+          label: "冒险电影",
         },
         {
-          value: "sports",
+          value: "Sports",
           label: "运动电影",
         },
       ],
