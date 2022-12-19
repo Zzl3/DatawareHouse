@@ -41,6 +41,10 @@ export default {
       method: "",
       options: [
         {
+          value: "Genre for Featured Categories",
+          label: "其他电影",
+        },
+        {
           value: "Action",
           label: "动作电影",
         },
@@ -49,7 +53,7 @@ export default {
           label: "冒险电影",
         },
         {
-          value: "Fantasy",
+          value: "Art House & International",
           label: "艺术电影",
         },
         {
@@ -65,32 +69,37 @@ export default {
           label: "悬疑电影",
         },
         {
-          value: "Science Fiction",
+          value: "Kids",
+          label: "儿童电影",
+        },
+        {
+          value: "Science Fiction & Fantasy",
           label: "科幻电影",
         },
         {
           value: "Anime",
           label: "动漫电影",
         },
-        {
-          value: "Kids",
-          label: "儿童电影",
-        },
+
         {
           value: "Comedy",
           label: "喜剧电影",
         },
         {
-          value: "Manga",
+          value: "Studio Specials",
           label: "奇幻电影",
+        },
+        {
+          value: "Musicals & Performing Arts",
+          label: "音乐电影",
         },
         {
           value: "Drama",
           label: "戏剧电影",
         },
         {
-          value: "War",
-          label: "战争电影",
+          value: "Adventure",
+          label: "冒险电影",
         },
         {
           value: "Sports",
